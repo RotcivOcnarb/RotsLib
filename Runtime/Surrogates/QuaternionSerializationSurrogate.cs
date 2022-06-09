@@ -1,7 +1,7 @@
 using System.Runtime.Serialization;
 using UnityEngine;
 
-namespace AurecasLib.Surrogate {
+namespace Rotslib.Surrogate {
 
     public class QuaternionSerializationSurrogate : ISerializationSurrogate {
         // Method called to serialize a Quaternion object

@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-namespace AurecasLib.UI {
+namespace Rotslib.UI {
     public class ButtonHitZone : MonoBehaviour {
 
         public float width;

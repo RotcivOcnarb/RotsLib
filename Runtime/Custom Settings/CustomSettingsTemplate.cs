@@ -1,7 +1,7 @@
 ﻿#if UNITY_EDITOR
 #endif
 using UnityEngine;
-namespace AurecasLib.Settings {
+namespace Rotslib.Settings {
 
     [CustomSettings("Template de Settings", new[] { "Tags", "De", "Pesquisa" }, "CaminhoDoAsset")]
     public class CustomSettingsTemplate : CustomSettingsObject {

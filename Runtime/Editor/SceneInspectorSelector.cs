@@ -5,7 +5,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
-namespace AurecasLib.Editor {
+namespace Rotslib.Editor {
 
     public class SceneInspectorSelector {
         public static string SceneSelector(string label, string scenePath, params GUILayoutOption[] options) {

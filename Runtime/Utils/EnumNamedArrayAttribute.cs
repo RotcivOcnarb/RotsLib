@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-namespace AurecasLib.Utils {
+namespace Rotslib.Utils {
     public class EnumNamedArrayAttribute : PropertyAttribute {
         public string[] names;
         public EnumNamedArrayAttribute(System.Type names_enum_type) {

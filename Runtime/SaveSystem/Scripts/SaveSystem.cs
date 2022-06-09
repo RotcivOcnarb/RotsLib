@@ -1,9 +1,9 @@
-﻿using AurecasLib.Surrogate;
+﻿using Rotslib.Surrogate;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
-namespace AurecasLib.Saving {
+namespace Rotslib.Saving {
 
     public class SaveSystem {
         public static bool logFilePath;

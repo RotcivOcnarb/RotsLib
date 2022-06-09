@@ -1,10 +1,10 @@
-﻿using AurecasLib.Settings;
+﻿using Rotslib.Settings;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEditor;
 using UnityEngine;
-namespace AurecasLib.Editor {
+namespace Rotslib.Editor {
 
     public static class CustomSettingsIMGUIRegister {
         static Dictionary<Type, int> selectedHeader = new Dictionary<Type, int>();

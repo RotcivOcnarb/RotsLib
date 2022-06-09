@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AurecasLib.Logs {
+namespace Rotslib.Logs {
     public class Pop : MonoBehaviour {
 
         public string data;

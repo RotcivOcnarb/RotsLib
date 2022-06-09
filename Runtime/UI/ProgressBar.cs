@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AurecasLib.UI {
+namespace Rotslib.UI {
     [ExecuteInEditMode]
     public class ProgressBar : MonoBehaviour {
         public Image fillBar;

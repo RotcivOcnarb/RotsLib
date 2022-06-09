@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace AurecasLib.Blur {
+namespace Rotslib.Blur {
     [RequireComponent(typeof(Camera))]
     public class BlurRenderer : MonoBehaviour {
         // Types

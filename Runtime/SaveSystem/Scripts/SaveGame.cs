@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace AurecasLib.Saving {
+namespace Rotslib.Saving {
     [Serializable]
     public class SaveGame {
         [Serializable]

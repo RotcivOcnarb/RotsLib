@@ -5,7 +5,7 @@ using System.Reflection;
 using UnityEditor;
 #endif
 using UnityEngine;
-namespace AurecasLib.Settings {
+namespace Rotslib.Settings {
 
     public abstract class CustomSettingsObject : ScriptableObject {
         static Dictionary<Type, CustomSettingsObject> DefaultSettings = new Dictionary<Type, CustomSettingsObject>();

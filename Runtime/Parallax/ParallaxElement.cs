@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace AurecasLib.Parallax {
+namespace Rotslib.Parallax {
     public class ParallaxElement : MonoBehaviour {
         public float factor = 0;
         public Vector2 direction;

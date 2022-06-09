@@ -1,5 +1,5 @@
 ﻿using System;
-namespace AurecasLib.Settings {
+namespace Rotslib.Settings {
 
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
     public class SettingsButtonAttribute : Attribute {

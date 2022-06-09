@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AurecasLib.UI {
+namespace Rotslib.UI {
     [RequireComponent(typeof(HorizontalLayoutGroup))]
     public class HorizontalCaroussel : MonoBehaviour {
 

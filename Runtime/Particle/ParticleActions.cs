@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace AurecasLib.Particle {
+namespace Rotslib.Particle {
     public class ParticleActions : MonoBehaviour {
         public ParticleSystem[] psTarget;
         public GameObject particlesParent;

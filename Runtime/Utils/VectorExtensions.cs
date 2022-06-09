@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace AurecasLib.Utils {
+namespace Rotslib.Utils {
     public static class VectorExtensions {
         // Gets the angle from deltas
         public static float DeltaToAngle(this Vector2 vec) {

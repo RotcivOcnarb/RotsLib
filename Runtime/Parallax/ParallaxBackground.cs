@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AurecasLib.Parallax {
+namespace Rotslib.Parallax {
     public class ParallaxBackground : MonoBehaviour {
 
         [System.Serializable]

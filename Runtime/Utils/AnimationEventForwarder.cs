@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace AurecasLib.Utils {
+namespace Rotslib.Utils {
     public class AnimationEventForwarder : MonoBehaviour {
         public UnityEvent[] actions;
 

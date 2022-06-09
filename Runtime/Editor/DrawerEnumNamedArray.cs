@@ -1,9 +1,9 @@
 ﻿#if UNITY_EDITOR
-using AurecasLib.Utils;
+using Rotslib.Utils;
 using UnityEditor;
 using UnityEngine;
 
-namespace AurecasLib.Editor {
+namespace Rotslib.Editor {
 
     [CustomPropertyDrawer(typeof(EnumNamedArrayAttribute))]
     public class DrawerEnumNamedArray : PropertyDrawer {

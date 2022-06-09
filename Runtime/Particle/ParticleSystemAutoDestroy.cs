@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-namespace AurecasLib.Particle {
+namespace Rotslib.Particle {
     public class ParticleSystemAutoDestroy : MonoBehaviour {
         private ParticleSystem ps;
 

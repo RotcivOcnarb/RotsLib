@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace AurecasLib.UI {
+namespace Rotslib.UI {
     [ExecuteInEditMode]
     public class ProgressBarTMP : MonoBehaviour {
         public Image fillBar;

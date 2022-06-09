@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace AurecasLib.Utils {
+namespace Rotslib.Utils {
     public class BillboardText : MonoBehaviour {
         TextMesh textMesh;
 

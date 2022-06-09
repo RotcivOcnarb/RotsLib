@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace AurecasLib.Saving {
+namespace Rotslib.Saving {
     public sealed class SaveGameManager : MonoBehaviour {
         public static SaveGameManager Instance;
 

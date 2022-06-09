@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace AurecasLib.Audio {
+namespace Rotslib.Audio {
     public class OSTManager : MonoBehaviour {
         public static OSTManager Instance;
 

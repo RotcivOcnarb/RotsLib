@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace AurecasLib.Utils {
+namespace Rotslib.Utils {
     public static class GeneralTouch {
         static Vector3 lastMousePos;
 

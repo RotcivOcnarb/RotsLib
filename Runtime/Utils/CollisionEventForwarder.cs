@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-namespace AurecasLib.Utils {
+namespace Rotslib.Utils {
 
     public class CollisionEventForwarder : MonoBehaviour {
         public Action<Collision> CollisionEnterEvent;

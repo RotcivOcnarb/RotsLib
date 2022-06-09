@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace AurecasLib.Audio {
+namespace Rotslib.Audio {
     public class OSTMusicChanger : MonoBehaviour {
         public AudioClip musicToChange;
 

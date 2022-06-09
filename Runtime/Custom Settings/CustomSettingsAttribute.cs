@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AurecasLib.Settings {
+namespace Rotslib.Settings {
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
     public class CustomSettingsAttribute : Attribute {
 

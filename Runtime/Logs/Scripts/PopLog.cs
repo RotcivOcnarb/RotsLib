@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-namespace AurecasLib.Logs {
+namespace Rotslib.Logs {
 
     public class PopLog : MonoBehaviour {
         public static PopLog Instance { get; set; }

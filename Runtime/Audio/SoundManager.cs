@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AurecasLib.Audio {
+namespace Rotslib.Audio {
     public class SoundManager : MonoBehaviour {
         public static SoundManager Instance;
 

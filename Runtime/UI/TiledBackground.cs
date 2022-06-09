@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AurecasLib.UI {
+namespace Rotslib.UI {
     public class TiledBackground : MonoBehaviour {
         // Parameters
         public string sortingLayer;

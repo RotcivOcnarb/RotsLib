@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace AurecasLib.Transition {
+namespace Rotslib.Transition {
     public class TransitionManager : MonoBehaviour {
         public static TransitionManager Instance;
         private string sceneToPrepare;

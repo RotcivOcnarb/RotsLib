@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 using UnityEditor;
 #endif
 
-namespace AurecasLib.Utils {
+namespace Rotslib.Utils {
     [System.Serializable]
     [CreateAssetMenu(fileName = "AutoTile", menuName = "Tiles/AutoTile Omni")]
     public class OmniTerrain : TileBase {

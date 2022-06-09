@@ -2,10 +2,10 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using static AurecasLib.Saving.ComposedLevelDataList;
-using static AurecasLib.Saving.SaveGame;
+using static Rotslib.Saving.ComposedLevelDataList;
+using static Rotslib.Saving.SaveGame;
 
-namespace AurecasLib.Saving {
+namespace Rotslib.Saving {
     [Serializable]
     public class ComposedLevelDataList {
         public List<Wrapper> levels;

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace AurecasLib.UI {
+namespace Rotslib.UI {
     public class DragAreaDetector : MonoBehaviour {
 
         bool pointerDown;

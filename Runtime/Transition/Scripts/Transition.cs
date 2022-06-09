@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace AurecasLib.Transition {
+namespace Rotslib.Transition {
     public class Transition : MonoBehaviour {
 
         public static Transition defaultTransitionPrefab;

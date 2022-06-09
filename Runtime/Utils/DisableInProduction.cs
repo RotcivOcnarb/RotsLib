@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-namespace AurecasLib.Utils {
+namespace Rotslib.Utils {
     public class DisableInProduction : MonoBehaviour {
         private void Awake() {
             if (!Debug.isDebugBuild) {

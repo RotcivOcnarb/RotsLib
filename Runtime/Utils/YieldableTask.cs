@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace AurecasLib.Utils {
+namespace Rotslib.Utils {
     public class YieldableTask<T> : CustomYieldInstruction {
         public override bool keepWaiting => !task.IsCompleted;
 

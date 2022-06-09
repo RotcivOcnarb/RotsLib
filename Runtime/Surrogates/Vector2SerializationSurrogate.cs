@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Runtime.Serialization;
 using System.Collections;
 
-namespace AurecasLib.Surrogate {
+namespace Rotslib.Surrogate {
     public class Vector2SerializationSurrogate : ISerializationSurrogate {
 
         // Method called to serialize a Vector3 object

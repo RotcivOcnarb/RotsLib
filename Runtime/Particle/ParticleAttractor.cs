@@ -1,6 +1,6 @@
 ﻿using System;
 using UnityEngine;
-namespace AurecasLib.Particle {
+namespace Rotslib.Particle {
 
     public class ParticleAttractor : MonoBehaviour {
 
