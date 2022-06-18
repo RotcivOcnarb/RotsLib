@@ -3,7 +3,15 @@ using UnityEngine;
 
 namespace Rotslib.Saving {
     public sealed class SaveGameManager : MonoBehaviour {
+
+        public enum SaveType {
+            BinaryFormatter,
+            JSON
+        }
+
         public static SaveGameManager Instance;
+
+        public SaveType saveType;
 
         private SaveGame saveGame;
         float lastTimeSaved;
@@ -28,9 +36,20 @@ namespace Rotslib.Saving {
             return saveGame as T;
         }
         public void LoadGame<T>(Action<T> afterLoad = null) where T : SaveGame {
-            if (!SaveSystem.LoadGame(out saveGame)) {
-                ResetSave<T>();
+            T sg = default;
+            switch (saveType) {
+                case SaveType.BinaryFormatter:
+                    if (!SaveSystem.LoadGame(out sg)) {
+                        ResetSave<T>();
+                    }
+                    break;
+                case SaveType.JSON:
+                    if (!JSONSaveSystem.LoadGame(out sg)) {
+                        ResetSave<T>();
+                    }
+                    break;
             }
+            saveGame = sg;
 
             afterLoad?.Invoke(saveGame as T);
         }
@@ -38,7 +57,15 @@ namespace Rotslib.Saving {
         public void SaveGame(Action afterSave = null) {
             saveGame.timePlayed += Time.time - lastTimeSaved;
             lastTimeSaved = Time.time;
-            SaveSystem.SaveGame(saveGame);
+            switch (saveType) {
+                case SaveType.BinaryFormatter:
+                    SaveSystem.SaveGame(saveGame);
+                    break;
+                case SaveType.JSON:
+                    JSONSaveSystem.SaveGame(saveGame);
+                    break;
+            }
+
             afterSave?.Invoke();
         }
 

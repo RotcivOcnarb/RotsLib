@@ -281,33 +281,5 @@ namespace Rotslib.Saving {
 
         }
 
-        public override string ToString() {
-            Initialize();
-            return JsonConvert.SerializeObject(this);
-        }
-
-        public string ToJson() {
-            return JsonConvert.SerializeObject(this, new SaveGameConverter());
-        }
-
-        public static SaveGame FromJson(string json) {
-            return JsonConvert.DeserializeObject(json, typeof(SaveGame), new SaveGameConverter()) as SaveGame;
-        }
-
-        class SaveGameConverter : JsonConverter {
-            public override bool CanConvert(Type objectType) {
-                return objectType == typeof(SaveGame);
-            }
-
-            public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer) {
-                JObject obj = serializer.Deserialize(reader) as JObject;
-                SaveGame sg = obj.ToObject<SaveGame>();
-                return sg;
-            }
-
-            public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer) {
-                writer.WriteRaw(JsonConvert.SerializeObject(value));
-            }
-        }
     }
 }
