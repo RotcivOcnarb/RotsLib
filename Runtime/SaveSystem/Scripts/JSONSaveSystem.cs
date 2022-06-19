@@ -13,24 +13,30 @@ namespace Rotslib.Saving {
                 new QuatConv()
                 );
 
-            byte[] encrypted = Criptography.Encrypt(json);
-            FileStream file = File.Open(Application.persistentDataPath + "/save.dat", FileMode.OpenOrCreate);
-            for (int i = 0; i < encrypted.Length; i++) {
-                file.WriteByte(encrypted[i]);
-            }
-            file.Close();
+            //byte[] encrypted = Criptography.Encrypt(json);
+            //FileStream file = File.Open(Application.persistentDataPath + "/save.dat", FileMode.OpenOrCreate);
+            //for (int i = 0; i < encrypted.Length; i++) {
+            //    file.WriteByte(encrypted[i]);
+            //}
+            //file.Close();
+
+            File.WriteAllText(Application.persistentDataPath + "/save.dat", json);
         }
 
         public static bool LoadGame<T>(out T data) {
             try {
-                byte[] read = File.ReadAllBytes(Application.persistentDataPath + "/save.dat");
-                string json = Criptography.Decrypt(read);
+
+                string json = File.ReadAllText(Application.persistentDataPath + "/save.dat");
+
+                //byte[] read = File.ReadAllBytes(Application.persistentDataPath + "/save.dat");
+                //string json = Criptography.Decrypt(read);
                 data = JsonConvert.DeserializeObject<T>(json,
                         new Vec2Conv(),
                         new Vec3Conv(),
                         new Vec4Conv(),
                         new QuatConv()
                     );
+
                 return true;
             }
             catch (Exception e){
