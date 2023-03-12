@@ -8,6 +8,8 @@ namespace Rotslib.Transition {
         public static TransitionManager Instance;
         private string sceneToPrepare;
 
+        [SerializeField] Transition defaultTransition;
+
         private void Awake() {
             if (Instance == null) {
                 Instance = this;
@@ -20,6 +22,7 @@ namespace Rotslib.Transition {
             }
             DontDestroyOnLoad(gameObject);
             SceneManager.sceneLoaded += OnSceneLoaded;
+            Transition.defaultTransitionPrefab = defaultTransition;
         }
 
         public void PrepareSceneIntro(string scene) {
