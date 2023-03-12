@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Rotslib.UI {
+namespace Rotslib.Input {
     public class DragAreaDetector : MonoBehaviour {
 
         bool pointerDown;
@@ -39,47 +39,47 @@ namespace Rotslib.UI {
                 }
             }
 
-            lastMousePos = Input.mousePosition;
+            lastMousePos = UnityEngine.Input.mousePosition;
 
         }
 
         public bool HasInputDown() {
-            return Input.touchCount > 0 || Input.GetMouseButton(0);
+            return UnityEngine.Input.touchCount > 0 || UnityEngine.Input.GetMouseButton(0);
         }
 
         public Touch GetTouch() {
-            if (Input.GetMouseButtonDown(0)) {
+            if (UnityEngine.Input.GetMouseButtonDown(0)) {
                 Touch touch = new Touch() {
                     deltaTime = Time.deltaTime,
                     fingerId = 0,
-                    position = Input.mousePosition,
-                    deltaPosition = Input.mousePosition - lastMousePos,
+                    position = UnityEngine.Input.mousePosition,
+                    deltaPosition = UnityEngine.Input.mousePosition - lastMousePos,
                     phase = TouchPhase.Began,
                 };
                 return touch;
             }
-            else if (Input.GetMouseButtonUp(0)) {
+            else if (UnityEngine.Input.GetMouseButtonUp(0)) {
                 Touch touch = new Touch() {
                     deltaTime = Time.deltaTime,
                     fingerId = 0,
-                    position = Input.mousePosition,
-                    deltaPosition = Input.mousePosition - lastMousePos,
+                    position = UnityEngine.Input.mousePosition,
+                    deltaPosition = UnityEngine.Input.mousePosition - lastMousePos,
                     phase = TouchPhase.Ended,
                 };
                 return touch;
             }
-            else if (Input.GetMouseButton(0)) {
+            else if (UnityEngine.Input.GetMouseButton(0)) {
                 Touch touch = new Touch() {
                     deltaTime = Time.deltaTime,
                     fingerId = 0,
-                    position = Input.mousePosition,
-                    deltaPosition = Input.mousePosition - lastMousePos,
-                    phase = Input.mousePosition == lastMousePos ? TouchPhase.Stationary : TouchPhase.Moved,
+                    position = UnityEngine.Input.mousePosition,
+                    deltaPosition = UnityEngine.Input.mousePosition - lastMousePos,
+                    phase = UnityEngine.Input.mousePosition == lastMousePos ? TouchPhase.Stationary : TouchPhase.Moved,
                 };
                 return touch;
             }
             else {
-                return Input.GetTouch(0);
+                return UnityEngine.Input.GetTouch(0);
             }
         }
 

@@ -1,13 +1,16 @@
 ﻿#if UNITY_EDITOR
-using Rotslib.Utils;
+using Rotslib.Attributes;
 using UnityEditor;
 using UnityEngine;
 
-namespace Rotslib.Editor {
+namespace Rotslib.Editor
+{
 
     [CustomPropertyDrawer(typeof(EnumNamedArrayAttribute))]
-    public class DrawerEnumNamedArray : PropertyDrawer {
-        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+    public class DrawerEnumNamedArray : PropertyDrawer
+    {
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        {
             EnumNamedArrayAttribute enumNames = attribute as EnumNamedArrayAttribute;
 
             int index = System.Convert.ToInt32(property.propertyPath.Substring(property.propertyPath.IndexOf("["))

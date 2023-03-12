@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Rotslib.Utils {
+namespace Rotslib.Coroutines {
     public class YieldableTask<T> : CustomYieldInstruction {
         public override bool keepWaiting => !task.IsCompleted;
 
