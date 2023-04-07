@@ -27,7 +27,6 @@ namespace Rotslib.Saving {
                 }
             }
             DontDestroyOnLoad(gameObject);
-            LoadGame<SaveGame>();
         }
 
         public T GetSaveGame<T>() where T : SaveGame {
