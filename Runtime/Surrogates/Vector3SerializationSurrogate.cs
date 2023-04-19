@@ -4,7 +4,6 @@ using System.Collections;
 namespace Rotslib.Surrogate {
     public class Vector3SerializationSurrogate : ISerializationSurrogate {
 
-        // Method called to serialize a Vector3 object
         public void GetObjectData(System.Object obj, SerializationInfo info, StreamingContext context) {
 
             Vector3 v3 = (Vector3)obj;
@@ -13,7 +12,6 @@ namespace Rotslib.Surrogate {
             info.AddValue("z", v3.z);
         }
 
-        // Method called to deserialize a Vector3 object
         public System.Object SetObjectData(System.Object obj, SerializationInfo info,
                                            StreamingContext context, ISurrogateSelector selector) {
 
@@ -21,6 +19,30 @@ namespace Rotslib.Surrogate {
             v3.x = (float)info.GetValue("x", typeof(float));
             v3.y = (float)info.GetValue("y", typeof(float));
             v3.z = (float)info.GetValue("z", typeof(float));
+            obj = v3;
+            return obj;
+        }
+    }
+    public class Vector3IntSerializationSurrogate : ISerializationSurrogate
+    {
+
+        public void GetObjectData(System.Object obj, SerializationInfo info, StreamingContext context)
+        {
+
+            Vector3Int v3 = (Vector3Int)obj;
+            info.AddValue("x", v3.x);
+            info.AddValue("y", v3.y);
+            info.AddValue("z", v3.z);
+        }
+
+        public System.Object SetObjectData(System.Object obj, SerializationInfo info,
+                                           StreamingContext context, ISurrogateSelector selector)
+        {
+
+            Vector3Int v3 = (Vector3Int)obj;
+            v3.x = (int)info.GetValue("x", typeof(int));
+            v3.y = (int)info.GetValue("y", typeof(int));
+            v3.z = (int)info.GetValue("z", typeof(int));
             obj = v3;
             return obj;
         }
