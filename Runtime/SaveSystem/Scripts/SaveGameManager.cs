@@ -10,11 +10,11 @@ namespace Rotslib.Saving {
         }
 
         public static SaveGameManager Instance;
-
         public SaveType saveType;
-
         private SaveGame saveGame;
         float lastTimeSaved;
+
+        float time;
 
         void Awake() {
             if (Instance == null) {
@@ -27,6 +27,11 @@ namespace Rotslib.Saving {
                 }
             }
             DontDestroyOnLoad(gameObject);
+        }
+
+        private void Update()
+        {
+            time = Time.time;
         }
 
         public T GetSaveGame<T>() where T : SaveGame {
@@ -55,8 +60,8 @@ namespace Rotslib.Saving {
         }
 
         public void SaveGame(Action afterSave = null) {
-            saveGame.timePlayed += Time.time - lastTimeSaved;
-            lastTimeSaved = Time.time;
+            saveGame.timePlayed += time - lastTimeSaved;
+            lastTimeSaved = time;
             switch (saveType) {
                 case SaveType.BinaryFormatter:
                     SaveSystem.SaveGame(saveGame);
