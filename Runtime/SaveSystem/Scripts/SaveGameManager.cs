@@ -27,6 +27,8 @@ namespace Rotslib.Saving {
                 }
             }
             DontDestroyOnLoad(gameObject);
+            SaveSystem.Initialize();
+            JSONSaveSystem.Initialize();
         }
 
         private void Update()

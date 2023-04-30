@@ -7,14 +7,21 @@ namespace Rotslib.Saving {
 
     public class SaveSystem {
         public static bool logFilePath;
+
+        static string persistentDataPath;
+        public static void Initialize()
+        {
+            persistentDataPath = Application.persistentDataPath;
+        }
+
         public static void SaveGame<T>(T data) {
             BinaryFormatter bf = new BinaryFormatter();
             bf.SurrogateSelector = GetSurrogates();
 
             if (Debug.isDebugBuild && logFilePath) {
-                Debug.Log("Save path: " + Application.persistentDataPath);
+                Debug.Log("Save path: " + persistentDataPath);
             }
-            FileStream file = File.Open(Application.persistentDataPath + "/save.dat", FileMode.OpenOrCreate);
+            FileStream file = File.Open(persistentDataPath + "/save.dat", FileMode.OpenOrCreate);
             bf.Serialize(file, data);
             file.Close();
         }
@@ -24,7 +31,7 @@ namespace Rotslib.Saving {
                 BinaryFormatter bf = new BinaryFormatter();
                 bf.SurrogateSelector = GetSurrogates();
 
-                using (FileStream file = File.Open(Application.persistentDataPath + "/save.dat", FileMode.OpenOrCreate)) {
+                using (FileStream file = File.Open(persistentDataPath + "/save.dat", FileMode.OpenOrCreate)) {
                     data = (T)bf.Deserialize(file);
                 }
                 return true;

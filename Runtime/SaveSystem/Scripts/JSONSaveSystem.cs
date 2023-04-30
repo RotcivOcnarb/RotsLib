@@ -5,6 +5,13 @@ using UnityEngine;
 namespace Rotslib.Saving {
 
     public class JSONSaveSystem {
+
+        static string persistentDataPath;
+        public static void Initialize()
+        {
+            persistentDataPath = Application.persistentDataPath;
+        }
+
         public static void SaveGame<T>(T data) {
             string json = JsonConvert.SerializeObject(data,
                 new Vec2Conv(),
@@ -20,13 +27,13 @@ namespace Rotslib.Saving {
             //}
             //file.Close();
 
-            File.WriteAllText(Application.persistentDataPath + "/save.dat", json);
+            File.WriteAllText(persistentDataPath + "/save.dat", json);
         }
 
         public static bool LoadGame<T>(out T data) {
             try {
 
-                string json = File.ReadAllText(Application.persistentDataPath + "/save.dat");
+                string json = File.ReadAllText(persistentDataPath + "/save.dat");
 
                 //byte[] read = File.ReadAllBytes(Application.persistentDataPath + "/save.dat");
                 //string json = Criptography.Decrypt(read);
