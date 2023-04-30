@@ -9,16 +9,18 @@ namespace Rotslib.Saving {
         public static bool logFilePath;
 
         static string persistentDataPath;
+        static bool debugBuild;
         public static void Initialize()
         {
             persistentDataPath = Application.persistentDataPath;
+            debugBuild = Debug.isDebugBuild;
         }
 
         public static void SaveGame<T>(T data) {
             BinaryFormatter bf = new BinaryFormatter();
             bf.SurrogateSelector = GetSurrogates();
 
-            if (Debug.isDebugBuild && logFilePath) {
+            if (debugBuild && logFilePath) {
                 Debug.Log("Save path: " + persistentDataPath);
             }
             FileStream file = File.Open(persistentDataPath + "/save.dat", FileMode.OpenOrCreate);
