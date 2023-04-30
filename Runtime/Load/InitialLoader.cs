@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Rotslib.Load {
@@ -5,10 +6,12 @@ namespace Rotslib.Load {
 
         public static bool hasLoaded;
         public static string debugScene;
+        public static bool waiting;
 
         [Attributes.Scene]
         public string mainScene;
 
+        
         void LoadInitialScene(string scene) {
             if (!string.IsNullOrEmpty(debugScene)) {
                 Transition.Transition.Goto(debugScene);
@@ -23,7 +26,8 @@ namespace Rotslib.Load {
             Application.targetFrameRate = 60;
         }
 
-        private void Start() {
+        private IEnumerator Start() {
+            while (waiting) yield return new WaitForEndOfFrame();
             LoadInitialScene(mainScene);
         }
     }
