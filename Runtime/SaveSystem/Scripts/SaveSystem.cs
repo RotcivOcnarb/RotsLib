@@ -1,7 +1,10 @@
 ﻿using Rotslib.Surrogate;
+using System;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading;
+using System.Threading.Tasks;
 using UnityEngine;
 namespace Rotslib.Saving {
 
@@ -28,6 +31,11 @@ namespace Rotslib.Saving {
             file.Close();
         }
 
+        public static async Task SaveGameAsync<T>(T data)
+        {
+            await Task.Run(() => { SaveGame(data); });
+        }
+
         public static bool LoadGame<T>(out T data) {
             try {
                 BinaryFormatter bf = new BinaryFormatter();
@@ -43,6 +51,15 @@ namespace Rotslib.Saving {
                 data = default;
                 return false;
             }
+        }
+
+        public static async Task<T> LoadGameAsync<T>()
+        {
+            T data = default;
+            await Task.Run(() => {
+                LoadGame(out data);
+            });
+            return data;
         }
 
         private static SurrogateSelector GetSurrogates()

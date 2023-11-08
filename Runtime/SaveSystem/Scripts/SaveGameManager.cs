@@ -1,10 +1,14 @@
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Rotslib.Saving {
-    public sealed class SaveGameManager : MonoBehaviour {
+namespace Rotslib.Saving
+{
+    public sealed class SaveGameManager : MonoBehaviour
+    {
 
-        public enum SaveType {
+        public enum SaveType
+        {
             BinaryFormatter,
             JSON
         }
@@ -16,12 +20,16 @@ namespace Rotslib.Saving {
 
         float time;
 
-        void Awake() {
-            if (Instance == null) {
+        void Awake()
+        {
+            if (Instance == null)
+            {
                 Instance = this;
             }
-            else {
-                if (Instance != this) {
+            else
+            {
+                if (Instance != this)
+                {
                     Destroy(gameObject);
                     return;
                 }
@@ -36,35 +44,52 @@ namespace Rotslib.Saving {
             time = Time.time;
         }
 
-        public T GetSaveGame<T>() where T : SaveGame {
-            if (saveGame == null) {
+        public T GetSaveGame<T>() where T : SaveGame
+        {
+            if (saveGame == null)
+            {
                 LoadGame<T>();
             }
             return saveGame as T;
         }
-        public void LoadGame<T>(Action<T> afterLoad = null) where T : SaveGame {
+        public T LoadGame<T>() where T : SaveGame
+        {
             T sg = default;
-            switch (saveType) {
+            switch (saveType)
+            {
                 case SaveType.BinaryFormatter:
-                    if (!SaveSystem.LoadGame(out sg)) {
+                    if (!SaveSystem.LoadGame(out sg))
+                    {
                         ResetSave<T>();
                     }
                     break;
                 case SaveType.JSON:
-                    if (!JSONSaveSystem.LoadGame(out sg)) {
+                    if (!JSONSaveSystem.LoadGame(out sg))
+                    {
                         ResetSave<T>();
                     }
                     break;
             }
             saveGame = sg;
-
-            afterLoad?.Invoke(saveGame as T);
+            return saveGame as T;
         }
 
-        public void SaveGame(Action afterSave = null) {
+        public async Task<T> LoadGameAsync<T>() where T : SaveGame
+        {
+            T result = default;
+            await Task.Run(() =>
+            {
+                result = LoadGame<T>();
+            });
+            return result;
+        }
+
+        public void SaveGame()
+        {
             saveGame.timePlayed += time - lastTimeSaved;
             lastTimeSaved = time;
-            switch (saveType) {
+            switch (saveType)
+            {
                 case SaveType.BinaryFormatter:
                     SaveSystem.SaveGame(saveGame);
                     break;
@@ -72,14 +97,31 @@ namespace Rotslib.Saving {
                     JSONSaveSystem.SaveGame(saveGame);
                     break;
             }
-
-            afterSave?.Invoke();
         }
 
-        public void ResetSave<T>(Action afterReset = null) where T : SaveGame {
+        public async Task SaveGameAsync()
+        {
+            await Task.Run(() =>
+            {
+                SaveGame();
+            });
+        }
+
+        public void ResetSave<T>() where T : SaveGame
+        {
             saveGame = Activator.CreateInstance(typeof(T)) as T;
             saveGame.Initialize();
-            SaveGame(afterReset);
+            SaveGame();
+        }
+
+        public async Task ResetSaveAsync<T>() where T : SaveGame
+        {
+            await Task.Run(() =>
+            {
+                saveGame = Activator.CreateInstance(typeof(T)) as T;
+                saveGame.Initialize();
+            });
+            await SaveGameAsync();
         }
     }
 
