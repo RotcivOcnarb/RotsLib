@@ -7,7 +7,5 @@
     "keywords": [],
     "description": "Biblioteca de códigos genéricos do Rotciv",
     "samples": [],
-	"dependencies": {
-		"com.unity.nuget.newtonsoft-json": "2.0.0"
-	}
+	"dependencies": {}
 }
