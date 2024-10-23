@@ -99,6 +99,11 @@ namespace Rotslib.Saving
             }
         }
 
+        public void OverrideSaveGame(SaveGame saveGame)
+        {
+            this.saveGame = saveGame;
+        }
+
         public async Task SaveGameAsync()
         {
             await Task.Run(() =>
