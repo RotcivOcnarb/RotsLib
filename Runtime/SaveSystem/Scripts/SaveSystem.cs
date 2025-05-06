@@ -90,6 +90,11 @@ namespace Rotslib.Saving {
             QuaternionSerializationSurrogate quaternionSS = new QuaternionSerializationSurrogate();
             surrogateSelector.AddSurrogate(typeof(Quaternion), new StreamingContext(StreamingContextStates.All), quaternionSS);
 
+            //Color surrogate
+            ColorSerializationSurrogate colorSS = new ColorSerializationSurrogate();
+            surrogateSelector.AddSurrogate(typeof(Color), new StreamingContext(StreamingContextStates.All), colorSS);
+
+
             return surrogateSelector;
         }
 
